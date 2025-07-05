@@ -21,28 +21,14 @@ const numberString = "73167176531330624919225119674426574742355349194934" +
 
 
 function LargestProductInASeries(number){
-    //13個とって積を求める
-    let num =0;
     let maxNum = -Infinity;
-    for(i=0; i<number.length; i++){
-        //絶対もっといい書き方がある
-        num0 =Number(numberString[i]);
-        num1 =Number(numberString[i+1]);
-        num2 =Number(numberString[i+2]);
-        num3 =Number(numberString[i+3]);
-        num4 =Number(numberString[i+4]);
-        num5 =Number(numberString[i+5]);
-        num6 =Number(numberString[i+6]);
-        num7 =Number(numberString[i+7]);
-        num8 =Number(numberString[i+8]);
-        num9 =Number(numberString[i+9]);
-        num10 =Number(numberString[i+10]);
-        num11 =Number(numberString[i+11]);
-        num12 =Number(numberString[i+12]);
-
-        num = num0 * num1 * num2 * num3 * num4 * num5 * num6 * num7 * num8 * num9 * num10 * num11 * num12;
-        if(num >maxNum){
-            maxNum = num
+    for(i=0; i<number.length -13; i++){
+        let product =1
+        for(j=0; j<13; j++){
+            product *= Number(number[i+j]);
+        }
+        if(product >maxNum){
+            maxNum = product;
         }
     }
     return maxNum 
