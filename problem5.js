@@ -4,7 +4,6 @@
 //LCM関数を用いる
 
 function SmallestMultiple(n){
-    let list = [];
     let result = 1;
     for(i=2; i<n; i++){
         result = LCM(result,i);
