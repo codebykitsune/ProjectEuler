@@ -4,6 +4,7 @@
 function SummationOfPrimes(limit) {
     // 1. 最初は、すべての数を「素数」だと思う（true）
     let isPrime = new Array(limit).fill(true);
+    //無限
     
     // 0と1は素数ではないから false にする
     isPrime[0] = false;
