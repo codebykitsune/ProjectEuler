@@ -4,7 +4,7 @@ $$1, 2, 3, 5, 8, 13, 21, 34, 55, 89, \dots$$</p>
 <p>By considering the terms in the Fibonacci sequence whose values do not exceed four million,
  find the sum of the even-valued terms.</p> */}
 
-function problem02(F1,F2){
+function Fibonacci(F1,F2){
     list = []
     if(F2 %2 ==0){
         list.push(F2)
@@ -34,4 +34,4 @@ function addArray(list){
 
 }
 
-console.log(problem02(1,2))
+console.log(Fibonacci(1,2))
