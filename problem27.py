@@ -1,15 +1,45 @@
-# オイラーは驚くべき二次式を発見しました：
+##ステップ
+##素数判定の関数
+##n² + a n + b この二次式の関数
+##素数が連続で何回続くのかを調べる関数
+##最後に|a| < 1000 かつ |b| ≤ 1000を回すメイン関数
 
-# n² + n + 41
 
-# この式は、連続する整数値 0 ≤ n ≤ 39 に対して 40 個の素数を生成します。しかし、n = 40 のとき、40² + 40 + 41 = 40(40 + 1) + 41 は 41 で割り切れ、さらに n = 41 のときも 41² + 41 + 41 は明らかに 41 で割り切れます。
+##素数判定の関数　探索範囲をsqrt(n)に絞ると時間計算量がO(N**1/2)
+def is_prime(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    i = 3
+    while i <= n ** 0.5:
+        if n % i == 0:
+            return False
+        i +=2 ##偶数飛ばし
+    return True
 
-# 連続する値 0 ≤ n ≤ 79 に対して 80 個の素数を生み出す驚異的な式 n² - 79n + 1601 が発見されました。係数 -79 と 1601 の積は -126479 です。
+##Quadratic Primes
+def quadratic_formula(a,b,n):
+    return n ** 2 + a * n + b
 
-# 以下の形の二次式を考えます：
+##素数が連続で何回続くのかを調べる関数
+def count_consecutive_primes(a,b):
+    n = 0
+    while True:
+        ##なぜnotなのか
+        if not is_prime(quadratic_formula(a,b,n)):
+            return n
+        n +=1
 
-# n² + a n + b 、ただし |a| < 1000 かつ |b| ≤ 1000
+def main():
+    TOP = 1000
+    max_length = 0
+    ##絶対値
+    for a in range(-999, TOP):
+        for b in range(-1000, TOP + 1):
+            if count_consecutive_primes(a,b) > max_length:
+                max_length = count_consecutive_primes(a,b)
+                result = a * b
+    print(result)
 
-# ここで |n| は n の絶対値（モジュラス）を表します。例えば、|11| = 11 かつ |-4| = 4
-
-# 連続する n の値、すなわち n = 0 から始まって最大数の素数を生成する二次式の係数 a と b の積を求めてください。
+main()
