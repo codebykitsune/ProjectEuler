@@ -12,3 +12,5 @@ def main(n):
 
 main(100)
 
+##先にdata = set()で宣言した方が見やすい
+
