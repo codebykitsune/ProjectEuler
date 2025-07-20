@@ -1,3 +1,5 @@
+##出典
+##https://odz.sakura.ne.jp/projecteuler/index.php?Problem+32
 # すべての桁に 1 から n が一度だけ使われている数をn桁の数が
 # パンデジタル (pandigital) であるということにしよう:
 # 例えば5桁の数 15234 は1から5のパンデジタルである.
