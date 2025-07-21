@@ -5,15 +5,8 @@ def factorial(n):
         return 1
     elif n >1:
         return n * factorial(n-1)
+    
 
-# print(factorial(9)) #362880
-
-# print(factorial(3)) #6
-# print(factorial(6)) #720
-# print(factorial(2)) #2
-# print(factorial(8)) #40320
-# print(factorial(8)) #40320
-# print(factorial(0)) #1
 def making_factorial(a,b):
     list_factorial = []
     for i in range(a, b+1):
@@ -22,18 +15,18 @@ def making_factorial(a,b):
     return list_factorial
 
 list_factorial = making_factorial(0,9)
-# print(list_factorial)
-max = 362880 *7
-def main():
-    list_sum = []
-    for i in range(3, max + 1):
-        sum = 0
-        i_str = str(i)
-        for j in i_str:
-            j_int = int(j)
-            sum += factorial(j_int)
-        if i == sum:
-            list_sum.append(i)
-    return list_sum
+# print(list_factorial[0])
 
-main()
+
+limit = len(str(list_factorial[9] * 7)) * list_factorial[9]
+print(limit)
+
+
+def main():
+    result = []
+    for i in range(3, limit + 1):
+        if i == sum(list_factorial[int(d)] for d in str(i)):
+            result.append(i)
+    return sum(result)
+
+print(main())
