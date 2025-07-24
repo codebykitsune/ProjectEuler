@@ -1,36 +1,19 @@
 # {/* <p>The sum of the primes below $10$ is $2 + 3 + 5 + 7 = 17$.</p>
 # <p>Find the sum of all the primes below two million.</p> */}
+def summation_of_primes(n):
+    a = [True] * (n +1)
+    a[0] = a[1] = False
+    for i in range(2, int(n ** 0.5) + 1):
+        if a[i]:
+            start = i * i
+            step = i
+            end = n + 1
+            for j in range(start, end, step):
+                a[j] = False
+    r =[]
+    for idx in range(len(a)):
+        if a[idx]:
+            r.append(idx)
+    return r
 
-# function SummationOfPrimes(limit) {
-#     // 1. 最初は、すべての数を「素数」だと思う（true）
-#     let isPrime = new Array(limit).fill(true);
-#     //無限
-    
-#     // 0と1は素数ではないから false にする
-#     isPrime[0] = false;
-#     isPrime[1] = false;
-
-#     // 2からスタートして、素数じゃないものを消す
-#     for (let i = 2; i * i < limit; i++) {
-#         // もしiが素数なら（まだtrueのままなら）
-#         if (isPrime[i]) {
-#             // iの倍数は素数じゃないから false にする
-#             for (let j = i * i; j < limit; j += i) {
-#                 isPrime[j] = false;
-#             }
-#         }
-#     }
-
-#     // 2. 残ったtrueの場所だけ合計する
-#     let sum = 0;
-#     for (let i = 2; i < limit; i++) {
-#         if (isPrime[i]) {
-#             sum += i;
-#         }
-#     }
-
-#     return sum;
-# }
-
-# // 実行してみる
-# console.log(SummationOfPrimes(2000000));
+print(summation_of_primes(100))
