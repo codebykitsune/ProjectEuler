@@ -16,4 +16,13 @@ def summation_of_primes(n):
             r.append(idx)
     return r
 
-print(summation_of_primes(100))
+rotation = set()
+
+for k in range(10,100):
+    k_str = str(k)
+    num = [k[j:]+k[:j] for j in range(len(k_str))]
+    rotation.add(num)
+
+print(rotation)
+
+
