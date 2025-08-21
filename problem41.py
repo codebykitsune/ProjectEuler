@@ -1,23 +1,27 @@
-# n桁パンデジタルであるとは, 
-# 1からnまでの数を各桁に1つずつ持つこととする.
+def isPan(n):
+    d = len(str(n))
+    s = [i for i in str(n)]
 
-# #下のリンク先にあるような数学的定義とは異なる
+    f = True
+    for i in range(1, d+1):
+        if s.count(str(i)) != 1:
+            f = False
+    return f
 
-# 例えば2143は4桁パンデジタル数であり, かつ素数である. 
-# n桁（この問題の定義では9桁以下）
-# パンデジタルな素数の中で最大の数を答えよ.
-
-def is_prime(n):
-    if n < 2:
+def sieve(n):
+    if n == 1:
         return False
-    if n == 2:
-        return True
-    elif n % 2 == 0:
-        return False
-    i = 3
-    while i <= n ** 0.5:
+    for i in range(2, int(n**0.5)+1):
         if n % i == 0:
             return False
-        i +=2
     return True
 
+
+pan_prime = []
+for i in range(1234567, 7654321):
+    if isPan(i) == True:
+        if sieve(i) == True:
+            pan_prime.append(i)
+            
+print(len(pan_prime))
+print(max(pan_prime))
